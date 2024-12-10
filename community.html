@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community - treeverse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="bg-gray-900 text-gray-200">
+    <!-- Header Section -->
+    <header class="bg-green-900 text-white shadow-lg">
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-semibold text-green-500">treeverse</h1>
+        <ul class="flex space-x-8">
+          <li><a href="./index.html" class="hover:text-green-300">Home</a></li>
+          <li>
+            <a href="./features.html" class="hover:text-green-300">Features</a>
+          </li>
+          <li>
+            <a href="./adopt.html" class="hover:text-green-300">Adopt a Tree</a>
+          </li>
+          <li>
+            <a href="./track.html" class="hover:text-green-300">Track Growth</a>
+          </li>
+          <li>
+            <a href="./community.html" class="hover:text-green-300"
+              >Community</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="community" class="container mx-auto py-16 px-6 text-center">
+      <h2 class="text-4xl font-semibold text-green-500 mb-4">
+        Join Our Global Community
+      </h2>
+      <p class="text-lg text-gray-400 mb-8">
+        Be part of a movement to combat deforestation, promote sustainability,
+        and contribute to a greener planet. Join thousands of like-minded
+        individuals and organizations working together to make a difference.
+      </p>
+    </section>
+
+    <!-- Community Stats Section -->
+    <section class="container mx-auto py-16 px-6">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-semibold text-green-500 mb-4">
+          Community Impact
+        </h3>
+        <p class="text-lg text-gray-400">
+          Our community is growing rapidly, and together, we are making a real
+          impact on the environment. Here are some key statistics showing our
+          collective efforts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <!-- Trees Planted -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+          <h4 class="text-2xl font-semibold text-green-300 mb-4">
+            Trees Planted
+          </h4>
+          <canvas
+            id="treesPlantedChart"
+            class="mx-auto"
+            style="max-height: 300px; width: 90%"
+          ></canvas>
+          <p class="text-lg text-gray-400 mt-4">
+            Over 100,000 trees have been planted by our community!
+          </p>
+        </div>
+
+        <!-- Active Members -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+          <h4 class="text-2xl font-semibold text-green-300 mb-4">
+            Active Members
+          </h4>
+          <canvas
+            id="activeMembersChart"
+            class="mx-auto"
+            style="max-height: 300px; width: 90%"
+          ></canvas>
+          <p class="text-lg text-gray-400 mt-4">
+            Join over 50,000 active members who are dedicated to environmental
+            conservation.
+          </p>
+        </div>
+
+        <!-- Events Participated -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+          <h4 class="text-2xl font-semibold text-green-300 mb-4">
+            Events Participated
+          </h4>
+          <canvas
+            id="eventsChart"
+            class="mx-auto"
+            style="max-height: 300px; width: 90%"
+          ></canvas>
+          <p class="text-lg text-gray-400 mt-4">
+            Thousands of individuals have participated in tree planting and
+            awareness events.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-gray-800 py-16">
+      <div class="container mx-auto px-6 text-center">
+        <h3 class="text-3xl font-semibold text-green-500 mb-8">
+          What Our Community Members Say
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+          <!-- Testimonial 1 -->
+          <div class="bg-gray-700 p-8 rounded-lg shadow-lg text-white">
+            <p class="text-lg text-gray-400 mb-4">
+              "I’ve never felt so connected to a cause. treeverse has made it
+              easy for me to get involved and make a tangible impact on the
+              environment!"
+            </p>
+            <p class="font-semibold text-green-500">Sarah J.</p>
+            <p class="text-sm text-gray-400">Environmental Activist</p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-gray-700 p-8 rounded-lg shadow-lg text-white">
+            <p class="text-lg text-gray-400 mb-4">
+              "treeverse has empowered me to take action and spread awareness
+              about the importance of reforestation. I’m proud to be a part of
+              this global movement!"
+            </p>
+            <p class="font-semibold text-green-500">Michael D.</p>
+            <p class="text-sm text-gray-400">Sustainability Advocate</p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-gray-700 p-8 rounded-lg shadow-lg text-white">
+            <p class="text-lg text-gray-400 mb-4">
+              "Through treeverse, I was able to adopt trees and track their
+              growth, contributing to carbon sequestration efforts. It's such an
+              empowering experience!"
+            </p>
+            <p class="font-semibold text-green-500">Emily T.</p>
+            <p class="text-sm text-gray-400">Tree Adopter</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="container mx-auto py-16 px-6 text-center">
+      <h2 class="text-3xl font-semibold text-green-500 mb-4">Get Involved</h2>
+      <p class="text-lg text-gray-400 mb-8">
+        Join the treeverse community today and start making a difference.
+        Together, we can build a greener future.
+      </p>
+      <a
+        href="#adopt"
+        class="inline-block bg-green-500 text-white text-xl py-3 px-6 rounded-full hover:bg-green-600 transition duration-300"
+        >Join the Community</a
+      >
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-green-800 text-white py-8 text-center">
+      <p>&copy; 2024 treeverse. All rights reserved.</p>
+      <div class="mt-4">
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >Facebook</a
+        >
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500">Twitter</a>
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >Instagram</a
+        >
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+
+    <!-- JavaScript to Create the Charts -->
+    <script>
+      // Trees Planted Chart (Pie Chart)
+      const ctx1 = document
+        .getElementById("treesPlantedChart")
+        .getContext("2d");
+      const treesPlantedChart = new Chart(ctx1, {
+        type: "pie",
+        data: {
+          labels: ["Planted Trees", "Remaining Target"],
+          datasets: [
+            {
+              data: [100000, 50000], // example data
+              backgroundColor: [
+                "rgba(16, 185, 129, 0.6)",
+                "rgba(34, 197, 94, 0.4)",
+              ],
+              borderColor: ["rgba(16, 185, 129, 1)", "rgba(34, 197, 94, 1)"],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Trees Planted by the Community",
+            },
+          },
+        },
+      });
+
+      // Active Members Chart (Bar Chart)
+      const ctx2 = document
+        .getElementById("activeMembersChart")
+        .getContext("2d");
+      const activeMembersChart = new Chart(ctx2, {
+        type: "bar",
+        data: {
+          labels: ["2020", "2021", "2022", "2023", "2024"],
+          datasets: [
+            {
+              label: "Active Members",
+              data: [1000, 5000, 15000, 30000, 50000], // example data
+              backgroundColor: "rgba(34, 197, 94, 0.6)",
+              borderColor: "rgba(34, 197, 94, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Active Members Over the Years",
+            },
+          },
+        },
+      });
+
+      // Events Participated Chart (Line Chart)
+      const ctx3 = document.getElementById("eventsChart").getContext("2d");
+      const eventsChart = new Chart(ctx3, {
+        type: "line",
+        data: {
+          labels: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ],
+          datasets: [
+            {
+              label: "Events Participated",
+              data: [
+                200, 500, 800, 1200, 1500, 2000, 2500, 3000, 3500, 4000, 4500,
+                5000,
+              ], // example data
+              fill: false,
+              borderColor: "rgba(16, 185, 129, 1)",
+              tension: 0.1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Events Participated in 2024",
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

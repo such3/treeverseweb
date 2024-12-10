@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Tree Growth - treeverse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="bg-gray-900 text-gray-200">
+    <!-- Header Section -->
+    <header class="bg-green-900 text-white shadow-lg">
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-semibold text-green-500">treeverse</h1>
+        <ul class="flex space-x-8">
+          <li><a href="./index.html" class="hover:text-green-300">Home</a></li>
+          <li>
+            <a href="./features.html" class="hover:text-green-300">Features</a>
+          </li>
+          <li>
+            <a href="./adopt.html" class="hover:text-green-300">Adopt a Tree</a>
+          </li>
+          <li>
+            <a href="./track.html" class="hover:text-green-300">Track Growth</a>
+          </li>
+          <li>
+            <a href="./community.html" class="hover:text-green-300"
+              >Community</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Track Tree Growth Section -->
+    <section id="track" class="container mx-auto py-16 px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-semibold text-green-500 mb-4">
+          Track Tree Growth
+        </h2>
+        <p class="text-lg text-gray-400">
+          Visualize your tree's progress over time with these insightful graphs.
+        </p>
+      </div>
+
+      <!-- Growth Over Time (Line Chart) -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">
+          Growth Over Time
+        </h3>
+        <canvas
+          id="growthLineChart"
+          class="w-full sm:w-3/4 md:w-1/2 lg:w-2/3 mx-auto"
+          style="max-height: 300px"
+        ></canvas>
+      </div>
+
+      <!-- Tree Comparison (Bar Chart) -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">
+          Tree Comparison
+        </h3>
+        <canvas
+          id="treeComparisonChart"
+          class="w-full sm:w-3/4 md:w-1/2 lg:w-2/3 mx-auto"
+          style="max-height: 300px"
+        ></canvas>
+      </div>
+
+      <!-- Environmental Parameters (Radar Chart) -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">
+          Environmental Parameters
+        </h3>
+        <canvas
+          id="environmentRadarChart"
+          class="w-full sm:w-3/4 md:w-1/2 lg:w-2/3 mx-auto"
+          style="max-height: 300px"
+        ></canvas>
+      </div>
+
+      <!-- Carbon Sequestration (Pie Chart) -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">
+          Carbon Sequestration
+        </h3>
+        <canvas
+          id="carbonSequestrationChart"
+          class="w-full sm:w-3/4 md:w-1/2 lg:w-2/3 mx-auto"
+          style="max-height: 300px"
+        ></canvas>
+      </div>
+
+      <!-- Monthly Growth Progress (Doughnut Chart) -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold text-green-300 mb-4">
+          Monthly Growth Progress
+        </h3>
+        <canvas
+          id="monthlyGrowthChart"
+          class="w-full sm:w-3/4 md:w-1/2 lg:w-2/3 mx-auto"
+          style="max-height: 300px"
+        ></canvas>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-green-800 text-white py-8 text-center">
+      <p>&copy; 2024 treeverse. All rights reserved.</p>
+      <div class="mt-4">
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >Facebook</a
+        >
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500">Twitter</a>
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >Instagram</a
+        >
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+
+    <!-- JavaScript to Create the Charts -->
+    <script>
+      // Growth Over Time (Line Chart)
+      const ctx1 = document.getElementById("growthLineChart").getContext("2d");
+      const growthLineChart = new Chart(ctx1, {
+        type: "line",
+        data: {
+          labels: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+          ], // months
+          datasets: [
+            {
+              label: "Tree Height (cm)",
+              data: [10, 20, 25, 35, 45, 50, 60, 70, 75, 85, 90, 95], // example data
+              borderColor: "rgba(34, 197, 94, 1)",
+              backgroundColor: "rgba(34, 197, 94, 0.2)",
+              fill: true,
+              tension: 0.3,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Tree Growth Over Time",
+            },
+            legend: {
+              position: "top",
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      // Tree Comparison (Bar Chart)
+      const ctx2 = document
+        .getElementById("treeComparisonChart")
+        .getContext("2d");
+      const treeComparisonChart = new Chart(ctx2, {
+        type: "bar",
+        data: {
+          labels: ["Tree A", "Tree B", "Tree C", "Tree D"], // different tree names
+          datasets: [
+            {
+              label: "Height (cm)",
+              data: [50, 70, 90, 60], // heights for comparison
+              backgroundColor: "rgba(16, 185, 129, 0.6)",
+              borderColor: "rgba(16, 185, 129, 1)",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Tree Height Comparison",
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      // Environmental Parameters (Radar Chart)
+      const ctx3 = document
+        .getElementById("environmentRadarChart")
+        .getContext("2d");
+      const environmentRadarChart = new Chart(ctx3, {
+        type: "radar",
+        data: {
+          labels: [
+            "Water",
+            "Sunlight",
+            "Soil Health",
+            "Temperature",
+            "Humidity",
+          ], // environmental factors
+          datasets: [
+            {
+              label: "Environmental Conditions",
+              data: [80, 90, 70, 85, 75], // example data for tree's environmental conditions
+              backgroundColor: "rgba(34, 197, 94, 0.2)",
+              borderColor: "rgba(34, 197, 94, 1)",
+              borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Tree Environmental Parameters",
+            },
+          },
+          scales: {
+            r: {
+              min: 0,
+              max: 100,
+              ticks: {
+                stepSize: 20,
+              },
+            },
+          },
+        },
+      });
+
+      // Carbon Sequestration (Pie Chart)
+      const ctx4 = document
+        .getElementById("carbonSequestrationChart")
+        .getContext("2d");
+      const carbonSequestrationChart = new Chart(ctx4, {
+        type: "pie",
+        data: {
+          labels: ["CO₂ Sequestered", "CO₂ Remaining"], // carbon sequestration data
+          datasets: [
+            {
+              data: [75, 25], // example data (percentage)
+              backgroundColor: [
+                "rgba(16, 185, 129, 0.6)",
+                "rgba(34, 197, 94, 0.4)",
+              ],
+              borderColor: ["rgba(16, 185, 129, 1)", "rgba(34, 197, 94, 1)"],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Carbon Sequestration",
+            },
+          },
+        },
+      });
+
+      // Monthly Growth Progress (Doughnut Chart)
+      const ctx5 = document
+        .getElementById("monthlyGrowthChart")
+        .getContext("2d");
+      const monthlyGrowthChart = new Chart(ctx5, {
+        type: "doughnut",
+        data: {
+          labels: ["January", "February", "March", "April", "May"],
+          datasets: [
+            {
+              data: [30, 40, 35, 45, 50], // growth progress data
+              backgroundColor: [
+                "rgba(16, 185, 129, 0.6)",
+                "rgba(34, 197, 94, 0.4)",
+                "rgba(16, 185, 129, 0.6)",
+                "rgba(34, 197, 94, 0.4)",
+                "rgba(16, 185, 129, 0.6)",
+              ],
+              borderColor: [
+                "rgba(16, 185, 129, 1)",
+                "rgba(34, 197, 94, 1)",
+                "rgba(16, 185, 129, 1)",
+                "rgba(34, 197, 94, 1)",
+                "rgba(16, 185, 129, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: "Monthly Growth Progress",
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

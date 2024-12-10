@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adopt a Tree - treeverse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      /* Custom Fonts */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400;500&display=swap");
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #1a1a1a;
+        color: #e5e5e5;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+      }
+
+      h2,
+      h3 {
+        color: #10b981;
+      }
+
+      .highlight {
+        color: #10b981;
+      }
+
+      .cta-button {
+        background-color: #10b981;
+        color: white;
+        font-weight: 600;
+        padding: 12px 40px;
+        border-radius: 50px;
+        font-size: 1.125rem;
+        transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+        text-transform: uppercase;
+      }
+
+      .cta-button:hover {
+        background-color: #059669;
+        transform: scale(1.05);
+      }
+
+      .section-title {
+        font-family: "Poppins", sans-serif;
+        color: #10b981;
+        font-size: 2.25rem;
+        font-weight: 600;
+      }
+
+      .cta-heading {
+        font-size: 3rem;
+        font-weight: 600;
+        line-height: 1.2;
+        color: #e5e5e5;
+      }
+
+      .cta-text {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .tree-card {
+        background-color: #333333;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+      }
+
+      .tree-card:hover {
+        transform: translateY(-5px);
+        background-color: #434343;
+      }
+
+      .tree-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .tree-card h3 {
+        color: #10b981;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 1rem;
+      }
+
+      .tree-card p {
+        color: #c7c7c7;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer {
+        background: linear-gradient(135deg, #059669, #10b981);
+        color: white;
+        padding: 40px 0;
+      }
+
+      .footer a {
+        color: #e5e5e5;
+        text-decoration: none;
+        margin: 0 15px;
+        transition: color 0.3s ease;
+      }
+
+      .footer a:hover {
+        color: #10b981;
+      }
+
+      .footer p {
+        margin-top: 20px;
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <header
+      class="bg-gradient-to-r from-green-900 to-green-700 text-white shadow-lg sticky top-0 z-10"
+    >
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-4xl font-bold text-green-300">treeverse</h1>
+        <ul class="flex space-x-8 text-lg font-medium">
+          <li><a href="#home" class="hover:text-green-300">Home</a></li>
+          <li>
+            <a href="./features.html" class="hover:text-green-300">Features</a>
+          </li>
+          <li>
+            <a href="./adopt.html" class="hover:text-green-300">Adopt a Tree</a>
+          </li>
+          <li>
+            <a href="./track.html" class="hover:text-green-300"
+              >Monitor Growth</a
+            >
+          </li>
+          <li>
+            <a href="./community.html" class="hover:text-green-300"
+              >Community</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="bg-gradient-to-r from-green-800 to-green-600 text-white py-28 text-center"
+    >
+      <h2 class="cta-heading mb-4">
+        Take Action. <span class="highlight">Adopt a Tree.</span> Restore the
+        Earth.
+      </h2>
+      <p class="cta-text">
+        Every tree planted is a step toward a greener, cleaner planet. Join us
+        in making a lasting impact on the environment.
+      </p>
+      <a href="./adopt.html" class="cta-button hover:bg-green-600"
+        >Adopt Your Tree Now</a
+      >
+    </section>
+
+    <!-- Adoption Process Section -->
+    <section class="container mx-auto py-20 px-6">
+      <h2 class="section-title text-center mb-10">
+        Choose Your Tree to Adopt and Make a Difference
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- Tree Option 1 -->
+        <div class="tree-card">
+          <img
+            src="https://thumbs.dreamstime.com/b/oak-tree-13115575.jpg"
+            alt="Tree 1"
+          />
+          <h3>Tropical Oak</h3>
+          <p>
+            This tree thrives in tropical regions and helps conserve
+            biodiversity. Adopting this tree will restore ecosystems and reduce
+            carbon emissions.
+          </p>
+          <button class="cta-button" onclick="location.href='#donate'">
+            Adopt This Tree
+          </button>
+        </div>
+
+        <!-- Tree Option 2 -->
+        <div class="tree-card">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1P4lXbr1HpOQeaudz6BkEZsnyplYRyVoq5g&s"
+            alt="Tree 2"
+          />
+          <h3>Mango Tree</h3>
+          <p>
+            Mango trees provide shade, oxygen, and food. Adopting a Mango Tree
+            helps support local biodiversity and contributes to environmental
+            stability.
+          </p>
+          <button class="cta-button" onclick="location.href='#donate'">
+            Adopt This Tree
+          </button>
+        </div>
+
+        <!-- Tree Option 3 -->
+        <div class="tree-card">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFWnZ7bm0KUl0WF1zAf0T-xkNUEJQDhzGOOA&s"
+            alt="Tree 3"
+          />
+          <h3>Evergreen Pine</h3>
+          <p>
+            Pine trees are essential for carbon sequestration and improving air
+            quality. By adopting this tree, you contribute directly to climate
+            change mitigation.
+          </p>
+          <button class="cta-button" onclick="location.href='#donate'">
+            Adopt This Tree
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="bg-gray-800 text-white py-16 px-6">
+      <h2 class="section-title text-center mb-8">
+        Make a Donation to Support Your Tree
+      </h2>
+      <div
+        class="container mx-auto max-w-md bg-gray-700 p-8 rounded-lg shadow-lg"
+      >
+        <h3 class="text-xl font-semibold text-green-300 mb-6">
+          Donation Amount
+        </h3>
+        <form action="#" method="POST" class="space-y-6">
+          <label for="donation" class="block text-gray-400"
+            >Select Donation Amount</label
+          >
+          <select
+            id="donation"
+            name="donation"
+            class="w-full p-3 rounded-lg bg-gray-900 text-green-300 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300"
+          >
+            <option value="10">$10 - Small Contribution</option>
+            <option value="25">$25 - Support Local Ecosystem</option>
+            <option value="50">$50 - Contribute to Reforestation</option>
+            <option value="100">$100 - Help Restore a Forest</option>
+          </select>
+
+          <button
+            type="submit"
+            class="w-full bg-green-600 text-white py-3 rounded-lg text-lg hover:bg-green-800 transition duration-300"
+          >
+            Donate and Adopt
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Growth Tracking Section (Graphs) -->
+    <section class="bg-gray-800 py-16 px-6">
+      <h2 class="section-title text-center mb-8">Track Your Tree Growth</h2>
+      <div class="container mx-auto">
+        <div class="mb-10">
+          <canvas id="growthChart" width="400" height="200"></canvas>
+        </div>
+        <div class="mb-10">
+          <canvas
+            id="carbonSequestrationChart"
+            width="400"
+            height="200"
+          ></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer text-center">
+      <p>&copy; 2024 treeverse. All rights reserved.</p>
+      <div class="mt-4">
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >Facebook</a
+        >
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500">Twitter</a>
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >Instagram</a
+        >
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      // Growth Chart Data
+      var ctx = document.getElementById("growthChart").getContext("2d");
+      var growthChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5"],
+          datasets: [
+            {
+              label: "Tree Growth (cm)",
+              data: [10, 25, 40, 55, 70],
+              borderColor: "#10B981",
+              backgroundColor: "rgba(16, 185, 129, 0.2)",
+              fill: true,
+              tension: 0.4,
+            },
+          ],
+        },
+      });
+
+      // Carbon Sequestration Chart Data
+      var ctx2 = document
+        .getElementById("carbonSequestrationChart")
+        .getContext("2d");
+      var carbonSequestrationChart = new Chart(ctx2, {
+        type: "bar",
+        data: {
+          labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5"],
+          datasets: [
+            {
+              label: "CO2 Sequestration (kg)",
+              data: [12, 24, 36, 48, 60],
+              backgroundColor: "#059669",
+              borderRadius: 5,
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

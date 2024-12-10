@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Page - treeverse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="bg-gray-900 text-gray-200">
+    <!-- Navigation Bar -->
+    <header class="bg-green-900 text-white shadow-lg">
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-semibold text-green-500">treeverse</h1>
+        <ul class="flex space-x-8">
+          <li><a href="index.html" class="hover:text-green-300">Home</a></li>
+
+          <li>
+            <a href="adopt.html" class="hover:text-green-300">Adopt a Tree</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Payment Section -->
+    <section class="container mx-auto py-16 px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-semibold text-green-500 mb-4">
+          Complete Your Donation
+        </h2>
+        <p class="text-lg text-gray-400">
+          Choose a payment method to support your adopted tree and make a
+          difference.
+        </p>
+      </div>
+
+      <!-- Payment Method Tabs -->
+      <div class="flex justify-center space-x-8 mb-8">
+        <button
+          id="credit-card-tab"
+          class="px-6 py-3 bg-gray-800 text-white rounded-lg text-lg hover:bg-green-800 transition duration-300 focus:outline-none"
+          onclick="showForm('credit-card')"
+        >
+          Credit Card
+        </button>
+        <button
+          id="paypal-tab"
+          class="px-6 py-3 bg-gray-800 text-white rounded-lg text-lg hover:bg-green-800 transition duration-300 focus:outline-none"
+          onclick="showForm('paypal')"
+        >
+          PayPal
+        </button>
+        <button
+          id="stripe-tab"
+          class="px-6 py-3 bg-gray-800 text-white rounded-lg text-lg hover:bg-green-800 transition duration-300 focus:outline-none"
+          onclick="showForm('stripe')"
+        >
+          Stripe
+        </button>
+      </div>
+
+      <!-- Payment Forms -->
+      <div
+        id="credit-card-form"
+        class="hidden bg-gray-800 p-8 rounded-lg shadow-lg"
+      >
+        <h3 class="text-2xl font-semibold text-green-300 mb-6">
+          Credit Card Payment
+        </h3>
+        <form class="space-y-6">
+          <div>
+            <label for="cc-number" class="text-gray-400">Card Number</label>
+            <input
+              type="text"
+              id="cc-number"
+              class="w-full p-3 rounded-lg bg-gray-900 text-green-300 border border-gray-600"
+              placeholder="XXXX-XXXX-XXXX-XXXX"
+            />
+          </div>
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <label for="cc-expiry" class="text-gray-400">Expiry Date</label>
+              <input
+                type="text"
+                id="cc-expiry"
+                class="w-full p-3 rounded-lg bg-gray-900 text-green-300 border border-gray-600"
+                placeholder="MM/YY"
+              />
+            </div>
+            <div>
+              <label for="cc-cvc" class="text-gray-400">CVC</label>
+              <input
+                type="text"
+                id="cc-cvc"
+                class="w-full p-3 rounded-lg bg-gray-900 text-green-300 border border-gray-600"
+                placeholder="CVC"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-green-600 text-white py-3 rounded-lg text-lg hover:bg-green-800 transition duration-300"
+          >
+            Pay with Card
+          </button>
+        </form>
+      </div>
+
+      <div id="paypal-form" class="hidden bg-gray-800 p-8 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-6">
+          PayPal Payment
+        </h3>
+        <form class="space-y-6">
+          <div>
+            <label for="paypal-email" class="text-gray-400">PayPal Email</label>
+            <input
+              type="email"
+              id="paypal-email"
+              class="w-full p-3 rounded-lg bg-gray-900 text-green-300 border border-gray-600"
+              placeholder="your-email@example.com"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-green-600 text-white py-3 rounded-lg text-lg hover:bg-green-800 transition duration-300"
+          >
+            Pay with PayPal
+          </button>
+        </form>
+      </div>
+
+      <div id="stripe-form" class="hidden bg-gray-800 p-8 rounded-lg shadow-lg">
+        <h3 class="text-2xl font-semibold text-green-300 mb-6">
+          Stripe Payment
+        </h3>
+        <form class="space-y-6">
+          <div>
+            <label for="stripe-card" class="text-gray-400">Card Number</label>
+            <input
+              type="text"
+              id="stripe-card"
+              class="w-full p-3 rounded-lg bg-gray-900 text-green-300 border border-gray-600"
+              placeholder="XXXX-XXXX-XXXX-XXXX"
+            />
+          </div>
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <label for="stripe-expiry" class="text-gray-400"
+                >Expiry Date</label
+              >
+              <input
+                type="text"
+                id="stripe-expiry"
+                class="w-full p-3 rounded-lg bg-gray-900 text-green-300 border border-gray-600"
+                placeholder="MM/YY"
+              />
+            </div>
+            <div>
+              <label for="stripe-cvc" class="text-gray-400">CVC</label>
+              <input
+                type="text"
+                id="stripe-cvc"
+                class="w-full p-3 rounded-lg bg-gray-900 text-green-300 border border-gray-600"
+                placeholder="CVC"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-green-600 text-white py-3 rounded-lg text-lg hover:bg-green-800 transition duration-300"
+          >
+            Pay with Stripe
+          </button>
+        </form>
+      </div>
+
+      <!-- Payment Progress Chart -->
+      <div class="mt-16">
+        <h3 class="text-2xl font-semibold text-center text-green-500 mb-8">
+          Donation Progress
+        </h3>
+        <div class="max-w-3xl mx-auto">
+          <canvas id="paymentProgressChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-green-800 text-white py-8 text-center">
+      <p>&copy; 2024 treeverse. All rights reserved.</p>
+      <div class="mt-4">
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >Facebook</a
+        >
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500">Twitter</a>
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >Instagram</a
+        >
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+
+    <!-- Chart.js Script for Payment Progress -->
+    <script>
+      // Switch between forms based on selection
+      function showForm(paymentMethod) {
+        // Hide all forms
+        document.getElementById("credit-card-form").classList.add("hidden");
+        document.getElementById("paypal-form").classList.add("hidden");
+        document.getElementById("stripe-form").classList.add("hidden");
+
+        // Show the selected form
+        if (paymentMethod === "credit-card") {
+          document
+            .getElementById("credit-card-form")
+            .classList.remove("hidden");
+        } else if (paymentMethod === "paypal") {
+          document.getElementById("paypal-form").classList.remove("hidden");
+        } else if (paymentMethod === "stripe") {
+          document.getElementById("stripe-form").classList.remove("hidden");
+        }
+      }
+
+      // Donation Progress Chart
+      const ctx = document
+        .getElementById("paymentProgressChart")
+        .getContext("2d");
+      const paymentProgressChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Total Goal", "Amount Raised"],
+          datasets: [
+            {
+              label: "Donation Progress",
+              data: [1000, 350], // Goal: 1000, Raised: 350
+              backgroundColor: [
+                "rgba(16, 185, 129, 0.6)",
+                "rgba(34, 197, 94, 0.6)",
+              ],
+              borderColor: ["rgba(16, 185, 129, 1)", "rgba(34, 197, 94, 1)"],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

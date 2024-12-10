@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tropical Oak Tree Details - treeverse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="bg-gray-900 text-gray-200">
+    <!-- Navigation Bar -->
+    <header class="bg-green-900 text-white shadow-lg">
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-semibold text-green-500">treeverse</h1>
+        <ul class="flex space-x-8">
+          <li><a href="./index.html" class="hover:text-green-300">Home</a></li>
+          <li>
+            <a href="./features.html" class="hover:text-green-300">Features</a>
+          </li>
+          <li>
+            <a href="./adopt.html" class="hover:text-green-300">Adopt a Tree</a>
+          </li>
+          <li>
+            <a href="./track.html" class="hover:text-green-300"
+              >Monitor Growth</a
+            >
+          </li>
+          <li>
+            <a href="./community.html" class="hover:text-green-300"
+              >Community</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Tree Detail Section -->
+    <section class="container mx-auto py-16 px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-semibold text-green-500 mb-4">
+          Tropical Oak Tree - Details
+        </h2>
+        <p class="text-lg text-gray-400">
+          Learn more about the Tropical Oak tree, its benefits, growth, and
+          environmental impact.
+        </p>
+      </div>
+
+      <!-- Tree Information -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <img
+            src="https://thumbs.dreamstime.com/b/oak-tree-13115575.jpg"
+            alt="Tropical Oak"
+            class="rounded-lg mb-6 w-1/2 h-1/2"
+          />
+          <h3 class="text-2xl font-semibold text-green-300 mb-4">
+            Tropical Oak
+          </h3>
+          <p class="text-gray-400 mb-4">
+            Tropical Oak trees thrive in tropical and subtropical regions,
+            playing a crucial role in forest ecosystems. Known for their dense
+            foliage, they provide vital oxygen, support biodiversity, and help
+            reduce deforestation.
+          </p>
+
+          <h4 class="text-xl font-semibold text-green-300 mb-2">
+            Key Benefits:
+          </h4>
+          <ul class="list-disc pl-6 text-gray-400">
+            <li>Helps in carbon sequestration</li>
+            <li>Restores biodiversity and wildlife habitats</li>
+            <li>Provides shade and reduces soil erosion</li>
+            <li>Boosts air quality by producing oxygen</li>
+          </ul>
+        </div>
+
+        <!-- Tree Stats -->
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-2xl font-semibold text-green-300 mb-4">
+            Tree Statistics
+          </h3>
+          <div class="text-gray-400 mb-6">
+            <p>
+              <span class="font-semibold text-green-500">Age:</span> 5 years
+            </p>
+            <p>
+              <span class="font-semibold text-green-500">Height:</span> 12 feet
+            </p>
+            <p>
+              <span class="font-semibold text-green-500">Species:</span> Quercus
+              Tropicalis
+            </p>
+            <p>
+              <span class="font-semibold text-green-500">Location:</span>
+              Southeast Asia
+            </p>
+          </div>
+          <button
+            class="bg-green-600 text-white py-2 px-6 rounded-lg text-lg hover:bg-green-800 transition duration-300"
+            onclick="location.href='#donate'"
+          >
+            Adopt This Tree
+          </button>
+        </div>
+      </div>
+
+      <!-- Chart Section -->
+      <div class="mt-16">
+        <h3 class="text-2xl font-semibold text-center text-green-500 mb-8">
+          Tree Growth and Carbon Sequestration
+        </h3>
+
+        <!-- Chart Container -->
+        <div class="max-w-3xl mx-auto">
+          <canvas id="treeChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Donation Section -->
+      <section id="donate" class="bg-gray-800 text-white py-16 px-6 mt-16">
+        <h2 class="text-3xl font-semibold text-center text-green-500 mb-8">
+          Support the Tropical Oak Tree
+        </h2>
+        <div
+          class="container mx-auto max-w-md bg-gray-700 p-8 rounded-lg shadow-lg"
+        >
+          <h3 class="text-xl font-semibold text-green-300 mb-6">
+            Donation Amount
+          </h3>
+          <form action="#" method="POST" class="space-y-6">
+            <label for="donation" class="block text-gray-400"
+              >Select Donation Amount</label
+            >
+            <select
+              id="donation"
+              name="donation"
+              class="w-full p-3 rounded-lg bg-gray-900 text-green-300 border border-gray-600"
+            >
+              <option value="10">$10 - Small Donation</option>
+              <option value="25">$25 - Medium Donation</option>
+              <option value="50">$50 - Large Donation</option>
+              <option value="100">$100 - Support a Forest</option>
+            </select>
+
+            <button
+              type="submit"
+              class="w-full bg-green-600 text-white py-3 rounded-lg text-lg hover:bg-green-800 transition duration-300"
+            >
+              Donate Now
+            </button>
+          </form>
+        </div>
+      </section>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-green-800 text-white py-8 text-center">
+      <p>&copy; 2024 treeverse. All rights reserved.</p>
+      <div class="mt-4">
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >Facebook</a
+        >
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500">Twitter</a>
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >Instagram</a
+        >
+        <a href="#" class="text-green-300 mx-4 hover:text-green-500"
+          >LinkedIn</a
+        >
+      </div>
+    </footer>
+
+    <!-- Chart.js Script -->
+    <script>
+      // Tree growth and carbon sequestration data
+      const ctx = document.getElementById("treeChart").getContext("2d");
+      const treeChart = new Chart(ctx, {
+        type: "line", // Line chart for growth over time
+        data: {
+          labels: ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5"], // Year labels
+          datasets: [
+            {
+              label: "Tree Growth (Height in feet)",
+              data: [2, 4, 7, 10, 12], // Growth data in feet
+              borderColor: "#34d399", // Green color
+              backgroundColor: "rgba(52, 211, 153, 0.2)", // Light green background
+              fill: true, // Fill under the curve
+              tension: 0.4,
+              borderWidth: 2,
+            },
+            {
+              label: "Carbon Sequestered (kg)",
+              data: [10, 25, 45, 70, 90], // Carbon sequestration in kg
+              borderColor: "#10b981", // Darker green color
+              backgroundColor: "rgba(16, 185, 129, 0.2)", // Light green background
+              fill: true, // Fill under the curve
+              tension: 0.4,
+              borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              beginAtZero: true,
+            },
+            y: {
+              beginAtZero: true,
+            },
+          },
+          plugins: {
+            legend: {
+              position: "top",
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
